@@ -13,7 +13,7 @@ jobs:
           echo "hello world"
           errorlog=error.log
           echo "until loop - trigger run - 2"
-          i=50
+          i=10
           until [ $i == 1 ]
           do
               echo "countdown: $i secs" >> $errorlog 2>&1;
