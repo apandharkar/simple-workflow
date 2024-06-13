@@ -11,13 +11,17 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
+          errorlog=error.log
           echo "until loop - trigger run - 2"
           i=50
           until [ $i == 1 ]
           do
-              echo "countdown: $i secs";
+              echo "countdown: $i secs" >> $errorlog 2>&1;
               i=$((i-1))
               sleep 1
           done
           echo "i value is $i"
-          echo "loop terminated"
+          
+          if grep -q "countdown" $errorlog; then
+              exit 1
+          fi
