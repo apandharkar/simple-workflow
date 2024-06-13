@@ -1,0 +1,27 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: My workflow
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+          echo "until loop - trigger run - 2"
+          i=50
+          until [ $i == 1 ]
+          do
+              echo "countdown: $i secs";
+              i=$((i-1))
+              sleep 1
+          done
+          echo "i value is $i"
+          echo "loop terminated"
