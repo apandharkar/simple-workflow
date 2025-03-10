@@ -12,7 +12,7 @@ jobs:
         run: |
           echo "hello  hello world"
           errorlog=error.log
-          echo "until loop - trigger run - 4"
+          echo "until loop - trigger run - 5"
           i=10
           until [ $i == 1 ]
           do
