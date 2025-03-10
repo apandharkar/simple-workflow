@@ -14,7 +14,7 @@ jobs:
         shell: sh
         run: |
           echo "hello world hello"
-          echo "until loop - trigger run - 1"
+          echo "until loop - trigger run - 2"
           i=50
           until [ $i == 1 ]
           do
